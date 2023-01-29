@@ -275,6 +275,207 @@ end
 		end
 		valuestr = "local Part = Instance.new('BoolValue')".. tostring(name).. tostring(parent).. tostring(value)..""
 	end
+	if part:IsA('IntValue') then
+		if _Name then
+			local val = part.Name
+			name = '\nPart.Name = `'..tostring(val).. '`'
+		else
+			name = ''
+		end
+		if _Value then
+			local val = part.Value
+			value = '\nPart.Value = '..tostring(val)
+		else
+			value = ''
+		end
+		if _Parent then
+			local val = part.Parent
+			if val == workspace.Source then
+				parent = '\nPart.Parent = game.'..tostring(_Root)
+			else
+				parent = '\nPart.Parent = '..tostring(val)
+			end
+		end
+		valuestr = "local Part = Instance.new('IntValue')".. tostring(name).. tostring(parent).. tostring(value)..""
+	end
+	if part:IsA('NumberValue') then
+		if _Name then
+			local val = part.Name
+			name = '\nPart.Name = `'..tostring(val).. '`'
+		else
+			name = ''
+		end
+		if _Value then
+			local val = part.Value
+			value = '\nPart.Value = '..tostring(val)
+		else
+			value = ''
+		end
+		if _Parent then
+			local val = part.Parent
+			if val == workspace.Source then
+				parent = '\nPart.Parent = game.'..tostring(_Root)
+			else
+				parent = '\nPart.Parent = '..tostring(val)
+			end
+		end
+		valuestr = "local Part = Instance.new('NumberValue')".. tostring(name).. tostring(parent).. tostring(value)..""
+	end
+	if part:IsA('StringValue') then
+		if _Name then
+			local val = part.Name
+			name = '\nPart.Name = `'..tostring(val).. '`'
+		else
+			name = ''
+		end
+		if _Value then
+			local val = part.Value
+			value = '\nPart.Value = '..tostring(val)
+		else
+			value = ''
+		end
+		if _Parent then
+			local val = part.Parent
+			if val == workspace.Source then
+				parent = '\nPart.Parent = game.'..tostring(_Root)
+			else
+				parent = '\nPart.Parent = '..tostring(val)
+			end
+		end
+		valuestr = "local Part = Instance.new('StringValue')".. tostring(name).. tostring(parent).. tostring(value)..""
+	end
+	if part:IsA('CFrameValue') then
+		if _Name then
+			local val = part.Name
+			name = '\nPart.Name = `'..tostring(val).. '`'
+		else
+			name = ''
+		end
+		if _Value then
+			local val = part.Value
+			value = '\nPart.Value = '..tostring(val)
+		else
+			value = ''
+		end
+		if _Parent then
+			local val = part.Parent
+			if val == workspace.Source then
+				parent = '\nPart.Parent = game.'..tostring(_Root)
+			else
+				parent = '\nPart.Parent = '..tostring(val)
+			end
+		end
+		valuestr = "local Part = Instance.new('CFrameValue')".. tostring(name).. tostring(parent).. tostring(value)..""
+	end
+	if part:IsA('Vector3Value') then
+		if _Name then
+			local val = part.Name
+			name = '\nPart.Name = `'..tostring(val).. '`'
+		else
+			name = ''
+		end
+		if _Value then
+			local val = part.Value
+			value = '\nPart.Value = '..tostring(val)
+		else
+			value = ''
+		end
+		if _Parent then
+			local val = part.Parent
+			if val == workspace.Source then
+				parent = '\nPart.Parent = game.'..tostring(_Root)
+			else
+				parent = '\nPart.Parent = '..tostring(val)
+			end
+		end
+		valuestr = "local Part = Instance.new('Vector3Value')".. tostring(name).. tostring(parent).. tostring(value)..""
+	end
+	if part:IsA('RayValue') then
+		if _Name then
+			local val = part.Name
+			name = '\nPart.Name = `'..tostring(val).. '`'
+		else
+			name = ''
+		end
+		if _Parent then
+			local val = part.Parent
+			if val == workspace.Source then
+				parent = '\nPart.Parent = game.'..tostring(_Root)
+			else
+				parent = '\nPart.Parent = '..tostring(val)
+			end
+		end
+		valuestr = "local Part = Instance.new('RayValue')".. tostring(name).. tostring(parent)..""
+	end
+	if part:IsA('ObjectValue') then
+		if _Name then
+			local val = part.Name
+			name = '\nPart.Name = `'..tostring(val).. '`'
+		else
+			name = ''
+		end
+		if _Value then
+			local val = part.Value
+			value = '\nPart.Value = '..tostring(val)
+		else
+			value = ''
+		end
+		if _Parent then
+			local val = part.Parent
+			if val == workspace.Source then
+				parent = '\nPart.Parent = game.'..tostring(_Root)
+			else
+				parent = '\nPart.Parent = '..tostring(val)
+			end
+		end
+		valuestr = "local Part = Instance.new('ObjectValue')".. tostring(name).. tostring(parent).. tostring(value)..""
+	end
+	if part:IsA('Color3Value') then
+		if _Name then
+			local val = part.Name
+			name = '\nPart.Name = `'..tostring(val).. '`'
+		else
+			name = ''
+		end
+		if _Value then
+			local val = part.Value
+			value = '\nPart.Value = '..tostring(val)
+		else
+			value = ''
+		end
+		if _Parent then
+			local val = part.Parent
+			if val == workspace.Source then
+				parent = '\nPart.Parent = game.'..tostring(_Root)
+			else
+				parent = '\nPart.Parent = '..tostring(val)
+			end
+		end
+		valuestr = "local Part = Instance.new('Color3Value')".. tostring(name).. tostring(parent).. tostring(value)..""
+	end
+	if part:IsA('BrickColorValue') then
+		if _Name then
+			local val = part.Name
+			name = '\nPart.Name = `'..tostring(val).. '`'
+		else
+			name = ''
+		end
+		if _Value then
+			local val = part.Value
+			value = '\nPart.Value = '..tostring(val)
+		else
+			value = ''
+		end
+		if _Parent then
+			local val = part.Parent
+			if val == workspace.Source then
+				parent = '\nPart.Parent = game.'..tostring(_Root)
+			else
+				parent = '\nPart.Parent = '..tostring(val)
+			end
+		end
+		valuestr = "local Part = Instance.new('BrickColorValue')".. tostring(name).. tostring(parent).. tostring(value)..""
+	end
 	
 		--Make the value
 			local valueToCopy = clipboard.Value ..'\n\n' ..valuestr
