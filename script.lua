@@ -1,4 +1,5 @@
 --Select which properties should be printed
+--Part and other
 _Root = game.Workspace --Root of the children inside the Source folder
 _Parent = true --Only for the children of the children of the Source folder.
 _Name = true
@@ -14,6 +15,12 @@ _CanCollide = true
 _CanTouch = true
 _CollisionGroup = true
 _Shape = true
+
+--Other instance related settings
+_Texture = true
+_Color3 = true
+_ZIndex = true
+_Face = true
 
 --Extra values that are mostly not used
 _CastShadow = true
@@ -33,7 +40,7 @@ local source = game.Workspace.Source --Instance
 for _,part in pairs(source:GetDescendants()) do
 
 --Source Code
-if part:IsA('Part') then
+	if part:IsA('Part') then
 	if _Anchored then
 		local val = part.Anchored
 		anchor = '\nPart.Anchored = '..tostring(val)
@@ -119,12 +126,59 @@ if part:IsA('Part') then
 			parent = '\nPart.Parent = game.'..tostring(_Root)
 		else
 			parent = '\nPart.Parent = '..tostring(val)
+			end
+			valuestr = "local Part = Instance.new('Part')"..anchor.. tostring(color).. tostring(mat).. tostring(size).. tostring(pos).. tostring(frame).. tostring(name).. tostring(trans).. tostring(collide).. tostring(touch).. tostring(query).. tostring(massless).. tostring(rootprio).. tostring(parent)..""
+	end
+end
+	if part:IsA('Decal') then
+			if _Color3 then
+				local val = part.Color3
+				color3 = '\nPart.Color3 = Color3.new('..tostring(val)..')'
+			else
+				color3 = ''
+			end
+			if _Name then
+				local val = part.Name
+				name = '\nPart.Name = `'..tostring(val).. '`'
+			else
+				name = ''
+			end
+			if _Transparency then
+				local val = part.Transparency
+				trans = '\nPart.Transparency = '..tostring(val)
+			else
+				trans = ''
 		end
+		if _Texture then
+			local val = part.Texture
+			texture = '\nPart.Texture = '..tostring(val)
+		else
+			texture = ''
+		end
+		if _ZIndex then
+			local val = part.ZIndex
+			dex = '\nPart.ZIndex = '..tostring(val)
+		else
+			dex = ''
+		end
+		if _Face then
+			local val = part.Face
+			face = '\nPart.Face = '..tostring(val)
+		else
+			face = ''
+		end
+			if _Parent then
+				local val = part.Parent
+				if val == workspace.Source then
+					parent = '\nPart.Parent = game.'..tostring(_Root)
+				else
+					parent = '\nPart.Parent = '..tostring(val)
+				end
+		end
+		valuestr = "local Part = Instance.new('Decal')".. tostring(color3).. tostring(name).. tostring(trans).. tostring(parent).. tostring(texture).. tostring(dex).. tostring(face)..""
 	end
 	
 		--Make the value
-	local valuestr = "local Part = Instance.new('Part')"..anchor.. tostring(color).. tostring(mat).. tostring(size).. tostring(pos).. tostring(frame).. tostring(name).. tostring(trans).. tostring(collide).. tostring(touch).. tostring(query).. tostring(massless).. tostring(rootprio).. tostring(parent)..""
 			local valueToCopy = clipboard.Value ..'\n\n' ..valuestr
 			clipboard.Value = valueToCopy
 	end
-end
