@@ -17,14 +17,18 @@ _CollisionGroup = true
 _Shape = true
 
 --Other instance related settings
+_Value = true
 _Texture = true
 _Color3 = true
 _ZIndex = true
 _Face = true
+_OffsetStudsU = true
+_OffsetStudsV = true
+_StudsPerTileU = true
+_StudsPerTileV = true
 
 --Extra values that are mostly not used
 _CastShadow = true
-_Archivable = true
 _Locked = true
 _Origin = true
 _PivotOffset = true
@@ -176,6 +180,100 @@ end
 				end
 		end
 		valuestr = "local Part = Instance.new('Decal')".. tostring(color3).. tostring(name).. tostring(trans).. tostring(parent).. tostring(texture).. tostring(dex).. tostring(face)..""
+	end
+	if part:IsA('Texture') then
+		if _Color3 then
+			local val = part.Color3
+			color3 = '\nPart.Color3 = Color3.new('..tostring(val)..')'
+		else
+			color3 = ''
+		end
+		if _Name then
+			local val = part.Name
+			name = '\nPart.Name = `'..tostring(val).. '`'
+		else
+			name = ''
+		end
+		if _Transparency then
+			local val = part.Transparency
+			trans = '\nPart.Transparency = '..tostring(val)
+		else
+			trans = ''
+		end
+		if _Texture then
+			local val = part.Texture
+			texture = '\nPart.Texture = '..tostring(val)
+		else
+			texture = ''
+		end
+		if _ZIndex then
+			local val = part.ZIndex
+			dex = '\nPart.ZIndex = '..tostring(val)
+		else
+			dex = ''
+		end
+		if _Face then
+			local val = part.Face
+			face = '\nPart.Face = '..tostring(val)
+		else
+			face = ''
+		end
+		if _OffsetStudsU then
+			local val = part.OffsetStudsU
+			offsetu = '\nPart.OffsetStudsU = '..tostring(val)
+		else
+			offsetu = ''
+		end
+		if _OffsetStudsV then
+			local val = part.OffsetStudsV
+			offsetv = '\nPart.OffsetStudsV = '..tostring(val)
+		else
+			offsetv = ''
+		end
+		if _StudsPerTileU then
+			local val = part.StudsPerTileU
+			studsu = '\nPart.StudsPerTileU = '..tostring(val)
+		else
+			studsu = ''
+		end
+		if _StudsPerTileV then
+			local val = part.StudsPerTileV
+			studsv = '\nPart.StudsPerTileV = '..tostring(val)
+		else
+			studsv = ''
+		end
+		if _Parent then
+			local val = part.Parent
+			if val == workspace.Source then
+				parent = '\nPart.Parent = game.'..tostring(_Root)
+			else
+				parent = '\nPart.Parent = '..tostring(val)
+			end
+		end
+		valuestr = "local Part = Instance.new('Texture')".. tostring(color3).. tostring(name).. tostring(trans).. tostring(parent).. tostring(texture).. tostring(dex).. tostring(face).. tostring(offsetu).. tostring(offsetv).. tostring(studsu).. tostring(studsv)..""
+	end
+	if part:IsA('BoolValue') then
+		if _Name then
+			local val = part.Name
+			name = '\nPart.Name = `'..tostring(val).. '`'
+		else
+			name = ''
+		end
+		if _Value then
+			local val = part.Value
+			value = '\nPart.Value = '..tostring(val)
+		else
+			value = ''
+		end
+		if _Parent then
+			local val = part.Parent
+			if val == workspace.Source then
+				parent = '\nPart.Parent = game.'..tostring(_Root)
+			else
+				parent = '\nPart.Parent = '..tostring(val)
+			end
+		end
+		valuestr = "local Part = Instance.new('BoolValue')".. tostring(name).. tostring(parent).. tostring(value)..""
 	end
 	
 		--Make the value
