@@ -1,6 +1,18 @@
 # Roblox Instance To Luau
 Code that can convert Roblox studio instances into code compatible with Roblox Injectors.
-Currently only supports these Instances: Part
+Currently only supports these Instances: 
+* Part
+* Decal
+* Texture
+* Intvalue
+* NumberValue
+* StringValue
+* CFrameValue
+* Vector3Value
+* RayValue
+* ObjectValue
+* Color3Value
+* BrickColorValue
 
 # How to use:
 1) Run this code in the Roblox studio command bar. `local folder = Instance.new('Folder', workspace) folder.Name = 'Source'`
