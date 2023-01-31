@@ -1,6 +1,6 @@
 --Select which properties should be printed
 --Part and other
-_Root = game.Workspace --Root of the children inside the Source folder
+_Root = "game.Workspace" --Root of the children inside the Source folder
 _Parent = true --Only for the children of the children of the Source folder.
 _Name = true
 _Transparency = true
@@ -43,7 +43,7 @@ clipboard.Name = "Output"
 local source = game.Workspace.Source --Instance
 for _,part in pairs(source:GetDescendants()) do
 
---Source Code
+	--Source Code
 	if part:IsA('Part') then
 	if _Anchored then
 		local val = part.Anchored
@@ -127,11 +127,11 @@ for _,part in pairs(source:GetDescendants()) do
 	if _Parent then
 		local val = part.Parent
 		if val == workspace.Source then
-			parent = '\nPart.Parent = game.'..tostring(_Root)
-		else
-			parent = '\nPart.Parent = '..tostring(val)
+			parent = '\nPart.Parent = '..tostring(_Root)
+			else
+				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
-			valuestr = "local Part = Instance.new('Part')"..anchor.. tostring(color).. tostring(mat).. tostring(size).. tostring(pos).. tostring(frame).. tostring(name).. tostring(trans).. tostring(collide).. tostring(touch).. tostring(query).. tostring(massless).. tostring(rootprio).. tostring(parent)..""
+			valuestr = "local " ..part.Name.. " = Instance.new('Part')\nlocal Part = "..part.Name..anchor.. tostring(color).. tostring(mat).. tostring(size).. tostring(pos).. tostring(frame).. tostring(name).. tostring(trans).. tostring(collide).. tostring(touch).. tostring(query).. tostring(massless).. tostring(rootprio).. tostring(parent)..""
 	end
 end
 	if part:IsA('Decal') then
@@ -172,14 +172,14 @@ end
 			face = ''
 		end
 			if _Parent then
-				local val = part.Parent
+				local val = part.Parent.Name
 				if val == workspace.Source then
 					parent = '\nPart.Parent = game.'..tostring(_Root)
 				else
-					parent = '\nPart.Parent = '..tostring(val)
+				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 				end
 		end
-		valuestr = "local Part = Instance.new('Decal')".. tostring(color3).. tostring(name).. tostring(trans).. tostring(parent).. tostring(texture).. tostring(dex).. tostring(face)..""
+		valuestr = "local "..part.Name.. " = Instance.new('Decal')\nlocal Part = "..part.Name.. tostring(color3).. tostring(name).. tostring(trans).. tostring(parent).. tostring(texture).. tostring(dex).. tostring(face)..""
 	end
 	if part:IsA('Texture') then
 		if _Color3 then
@@ -247,7 +247,7 @@ end
 			if val == workspace.Source then
 				parent = '\nPart.Parent = game.'..tostring(_Root)
 			else
-				parent = '\nPart.Parent = '..tostring(val)
+				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
 		end
 		valuestr = "local Part = Instance.new('Texture')".. tostring(color3).. tostring(name).. tostring(trans).. tostring(parent).. tostring(texture).. tostring(dex).. tostring(face).. tostring(offsetu).. tostring(offsetv).. tostring(studsu).. tostring(studsv)..""
@@ -270,7 +270,7 @@ end
 			if val == workspace.Source then
 				parent = '\nPart.Parent = game.'..tostring(_Root)
 			else
-				parent = '\nPart.Parent = '..tostring(val)
+				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
 		end
 		valuestr = "local Part = Instance.new('BoolValue')".. tostring(name).. tostring(parent).. tostring(value)..""
@@ -293,7 +293,7 @@ end
 			if val == workspace.Source then
 				parent = '\nPart.Parent = game.'..tostring(_Root)
 			else
-				parent = '\nPart.Parent = '..tostring(val)
+				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
 		end
 		valuestr = "local Part = Instance.new('IntValue')".. tostring(name).. tostring(parent).. tostring(value)..""
@@ -316,7 +316,7 @@ end
 			if val == workspace.Source then
 				parent = '\nPart.Parent = game.'..tostring(_Root)
 			else
-				parent = '\nPart.Parent = '..tostring(val)
+				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
 		end
 		valuestr = "local Part = Instance.new('NumberValue')".. tostring(name).. tostring(parent).. tostring(value)..""
@@ -330,7 +330,7 @@ end
 		end
 		if _Value then
 			local val = part.Value
-			value = '\nPart.Value = '..tostring(val)
+			value = '\nPart.Value = "'..tostring(val).. '"'
 		else
 			value = ''
 		end
@@ -339,7 +339,7 @@ end
 			if val == workspace.Source then
 				parent = '\nPart.Parent = game.'..tostring(_Root)
 			else
-				parent = '\nPart.Parent = '..tostring(val)
+				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
 		end
 		valuestr = "local Part = Instance.new('StringValue')".. tostring(name).. tostring(parent).. tostring(value)..""
@@ -353,7 +353,7 @@ end
 		end
 		if _Value then
 			local val = part.Value
-			value = '\nPart.Value = '..tostring(val)
+			value = '\nPart.Value = CFrame.new('..tostring(val).. ')'
 		else
 			value = ''
 		end
@@ -362,12 +362,35 @@ end
 			if val == workspace.Source then
 				parent = '\nPart.Parent = game.'..tostring(_Root)
 			else
-				parent = '\nPart.Parent = '..tostring(val)
+				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
 		end
 		valuestr = "local Part = Instance.new('CFrameValue')".. tostring(name).. tostring(parent).. tostring(value)..""
 	end
 	if part:IsA('Vector3Value') then
+		if _Name then
+			local val = part.Name
+			name = '\nPart.Name = `'..tostring(val).. '`'
+		else
+			name = ''
+		end
+		if _Value then
+			local val = part.Value
+			value = '\nPart.Value = Vector3.new('..tostring(val).. ')'
+		else
+			value = ''
+		end
+		if _Parent then
+			local val = part.Parent
+			if val == workspace.Source then
+				parent = '\nPart.Parent = game.'..tostring(_Root)
+			else
+				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
+			end
+		end
+		valuestr = "local Part = Instance.new('Vector3Value')".. tostring(name).. tostring(parent).. tostring(value)..""
+	end
+	if part:IsA('RayValue') then
 		if _Name then
 			local val = part.Name
 			name = '\nPart.Name = `'..tostring(val).. '`'
@@ -385,27 +408,10 @@ end
 			if val == workspace.Source then
 				parent = '\nPart.Parent = game.'..tostring(_Root)
 			else
-				parent = '\nPart.Parent = '..tostring(val)
+				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
 		end
-		valuestr = "local Part = Instance.new('Vector3Value')".. tostring(name).. tostring(parent).. tostring(value)..""
-	end
-	if part:IsA('RayValue') then
-		if _Name then
-			local val = part.Name
-			name = '\nPart.Name = `'..tostring(val).. '`'
-		else
-			name = ''
-		end
-		if _Parent then
-			local val = part.Parent
-			if val == workspace.Source then
-				parent = '\nPart.Parent = game.'..tostring(_Root)
-			else
-				parent = '\nPart.Parent = '..tostring(val)
-			end
-		end
-		valuestr = "local Part = Instance.new('RayValue')".. tostring(name).. tostring(parent)..""
+		valuestr = "local Part = Instance.new('RayValue')".. tostring(name).. tostring(parent).. tostring(value)..""
 	end
 	if part:IsA('ObjectValue') then
 		if _Name then
@@ -425,7 +431,7 @@ end
 			if val == workspace.Source then
 				parent = '\nPart.Parent = game.'..tostring(_Root)
 			else
-				parent = '\nPart.Parent = '..tostring(val)
+				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
 		end
 		valuestr = "local Part = Instance.new('ObjectValue')".. tostring(name).. tostring(parent).. tostring(value)..""
@@ -439,7 +445,7 @@ end
 		end
 		if _Value then
 			local val = part.Value
-			value = '\nPart.Value = '..tostring(val)
+			value = '\nPart.Value = Color3.new('..tostring(val).. ')'
 		else
 			value = ''
 		end
@@ -448,7 +454,7 @@ end
 			if val == workspace.Source then
 				parent = '\nPart.Parent = game.'..tostring(_Root)
 			else
-				parent = '\nPart.Parent = '..tostring(val)
+				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
 		end
 		valuestr = "local Part = Instance.new('Color3Value')".. tostring(name).. tostring(parent).. tostring(value)..""
@@ -471,7 +477,7 @@ end
 			if val == workspace.Source then
 				parent = '\nPart.Parent = game.'..tostring(_Root)
 			else
-				parent = '\nPart.Parent = '..tostring(val)
+				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
 		end
 		valuestr = "local Part = Instance.new('BrickColorValue')".. tostring(name).. tostring(parent).. tostring(value)..""
