@@ -24,4 +24,6 @@ Currently only supports these Instances:
 7) Go to workspace and copy the saved value from the 'Output' instance saved in the workspace
 
 # Limitations
-This script currently only supports the instances listed at the beginning. One of the other limitations is that nothing can be called 'Source' or have 'Source' in the name. DOING THIS WILL BREAK THE PARENT SYSTEM. 
+This script currently only supports the instances listed at the beginning. 
+
+One of the other limitations is that nothing can be called 'Source' or have 'Source' in the name. You can also not give the child the same name as the parent or give the parent the same name as the child as this will break it as well. DOING ANY OF THESE THINGS WILL BREAK THE PARENT PROPERTY. 
