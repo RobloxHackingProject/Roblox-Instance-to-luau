@@ -27,3 +27,5 @@ Currently only supports these Instances:
 This script currently only supports the instances listed at the beginning. 
 
 You can not give the child the same name as the parent or give the parent the same name as the child as this will break the output.
+
+This script will output a broken script when a texture property is left empty. (this can be prevented by disabling the texture property in the scripts settings.)
