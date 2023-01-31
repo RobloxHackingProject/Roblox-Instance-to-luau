@@ -48,7 +48,6 @@ for _,part in pairs(source:GetDescendants()) do
 	if _Anchored then
 		local val = part.Anchored
 		anchor = '\nPart.Anchored = '..tostring(val)
-		print(anchor)
 	else
 		anchor = ''
 		end
@@ -131,7 +130,7 @@ for _,part in pairs(source:GetDescendants()) do
 			else
 				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
-			valuestr = "local " ..part.Name.. " = Instance.new('Part')\nlocal Part = "..part.Name..anchor.. tostring(color).. tostring(mat).. tostring(size).. tostring(pos).. tostring(frame).. tostring(name).. tostring(trans).. tostring(collide).. tostring(touch).. tostring(query).. tostring(massless).. tostring(rootprio).. tostring(parent)..""
+			valuestr = "local Part = Instance.new('Part')"..anchor.. tostring(color).. tostring(mat).. tostring(size).. tostring(pos).. tostring(frame).. tostring(name).. tostring(trans).. tostring(collide).. tostring(touch).. tostring(query).. tostring(massless).. tostring(rootprio).. tostring(parent)..""
 	end
 end
 	if part:IsA('Decal') then
@@ -179,7 +178,7 @@ end
 				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 				end
 		end
-		valuestr = "local "..part.Name.. " = Instance.new('Decal')\nlocal Part = "..part.Name.. tostring(color3).. tostring(name).. tostring(trans).. tostring(parent).. tostring(texture).. tostring(dex).. tostring(face)..""
+		valuestr = "local Part = Instance.new('Decal')".. tostring(color3).. tostring(name).. tostring(trans).. tostring(parent).. tostring(texture).. tostring(dex).. tostring(face)..""
 	end
 	if part:IsA('Texture') then
 		if _Color3 then
