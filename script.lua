@@ -137,38 +137,26 @@ end
 			if _Color3 then
 				local val = part.Color3
 				color3 = '\nPart.Color3 = Color3.new('..tostring(val)..')'
-			else
-				color3 = ''
 			end
 			if _Name then
 				local val = part.Name
 				name = '\nPart.Name = `'..tostring(val).. '`'
-			else
-				name = ''
 			end
 			if _Transparency then
 				local val = part.Transparency
 				trans = '\nPart.Transparency = '..tostring(val)
-			else
-				trans = ''
 		end
 		if _Texture then
 			local val = part.Texture
 			texture = '\nPart.Texture = '..tostring(val)
-		else
-			texture = ''
 		end
 		if _ZIndex then
 			local val = part.ZIndex
 			dex = '\nPart.ZIndex = '..tostring(val)
-		else
-			dex = ''
 		end
 		if _Face then
 			local val = part.Face
 			face = '\nPart.Face = '..tostring(val)
-		else
-			face = ''
 		end
 			if _Parent then
 				local val = part.Parent.Name
@@ -184,62 +172,42 @@ end
 		if _Color3 then
 			local val = part.Color3
 			color3 = '\nPart.Color3 = Color3.new('..tostring(val)..')'
-		else
-			color3 = ''
 		end
 		if _Name then
 			local val = part.Name
 			name = '\nPart.Name = `'..tostring(val).. '`'
-		else
-			name = ''
 		end
 		if _Transparency then
 			local val = part.Transparency
 			trans = '\nPart.Transparency = '..tostring(val)
-		else
-			trans = ''
 		end
 		if _Texture then
 			local val = part.Texture
 			texture = '\nPart.Texture = '..tostring(val)
-		else
-			texture = ''
 		end
 		if _ZIndex then
 			local val = part.ZIndex
 			dex = '\nPart.ZIndex = '..tostring(val)
-		else
-			dex = ''
 		end
 		if _Face then
 			local val = part.Face
 			face = '\nPart.Face = '..tostring(val)
-		else
-			face = ''
 		end
 		if _OffsetStudsU then
 			local val = part.OffsetStudsU
 			offsetu = '\nPart.OffsetStudsU = '..tostring(val)
-		else
-			offsetu = ''
 		end
 		if _OffsetStudsV then
 			local val = part.OffsetStudsV
 			offsetv = '\nPart.OffsetStudsV = '..tostring(val)
-		else
-			offsetv = ''
 		end
 		if _StudsPerTileU then
 			local val = part.StudsPerTileU
 			studsu = '\nPart.StudsPerTileU = '..tostring(val)
-		else
-			studsu = ''
 		end
 		if _StudsPerTileV then
 			local val = part.StudsPerTileV
 			studsv = '\nPart.StudsPerTileV = '..tostring(val)
-		else
-			studsv = ''
 		end
 		if _Parent then
 			local val = part.Parent
@@ -255,14 +223,10 @@ end
 		if _Name then
 			local val = part.Name
 			name = '\nPart.Name = `'..tostring(val).. '`'
-		else
-			name = ''
 		end
 		if _Value then
 			local val = part.Value
 			value = '\nPart.Value = '..tostring(val)
-		else
-			value = ''
 		end
 		if _Parent then
 			local val = part.Parent
@@ -278,14 +242,10 @@ end
 		if _Name then
 			local val = part.Name
 			name = '\nPart.Name = `'..tostring(val).. '`'
-		else
-			name = ''
 		end
 		if _Value then
 			local val = part.Value
 			value = '\nPart.Value = '..tostring(val)
-		else
-			value = ''
 		end
 		if _Parent then
 			local val = part.Parent
@@ -301,14 +261,10 @@ end
 		if _Name then
 			local val = part.Name
 			name = '\nPart.Name = `'..tostring(val).. '`'
-		else
-			name = ''
 		end
 		if _Value then
 			local val = part.Value
 			value = '\nPart.Value = '..tostring(val)
-		else
-			value = ''
 		end
 		if _Parent then
 			local val = part.Parent
@@ -324,14 +280,10 @@ end
 		if _Name then
 			local val = part.Name
 			name = '\nPart.Name = `'..tostring(val).. '`'
-		else
-			name = ''
 		end
 		if _Value then
 			local val = part.Value
 			value = '\nPart.Value = "'..tostring(val).. '"'
-		else
-			value = ''
 		end
 		if _Parent then
 			local val = part.Parent
@@ -347,14 +299,10 @@ end
 		if _Name then
 			local val = part.Name
 			name = '\nPart.Name = `'..tostring(val).. '`'
-		else
-			name = ''
 		end
 		if _Value then
 			local val = part.Value
 			value = '\nPart.Value = CFrame.new('..tostring(val).. ')'
-		else
-			value = ''
 		end
 		if _Parent then
 			local val = part.Parent
@@ -370,14 +318,10 @@ end
 		if _Name then
 			local val = part.Name
 			name = '\nPart.Name = `'..tostring(val).. '`'
-		else
-			name = ''
 		end
 		if _Value then
 			local val = part.Value
 			value = '\nPart.Value = Vector3.new('..tostring(val).. ')'
-		else
-			value = ''
 		end
 		if _Parent then
 			local val = part.Parent
@@ -393,14 +337,10 @@ end
 		if _Name then
 			local val = part.Name
 			name = '\nPart.Name = `'..tostring(val).. '`'
-		else
-			name = ''
 		end
 		if _Value then
 			local val = part.Value
 			value = '\nPart.Value = '..tostring(val)
-		else
-			value = ''
 		end
 		if _Parent then
 			local val = part.Parent
@@ -416,14 +356,10 @@ end
 		if _Name then
 			local val = part.Name
 			name = '\nPart.Name = `'..tostring(val).. '`'
-		else
-			name = ''
 		end
 		if _Value then
 			local val = part.Value
 			value = '\nPart.Value = '..tostring(val)
-		else
-			value = ''
 		end
 		if _Parent then
 			local val = part.Parent
@@ -439,14 +375,10 @@ end
 		if _Name then
 			local val = part.Name
 			name = '\nPart.Name = `'..tostring(val).. '`'
-		else
-			name = ''
 		end
 		if _Value then
 			local val = part.Value
 			value = '\nPart.Value = Color3.new('..tostring(val).. ')'
-		else
-			value = ''
 		end
 		if _Parent then
 			local val = part.Parent
@@ -462,14 +394,10 @@ end
 		if _Name then
 			local val = part.Name
 			name = '\nPart.Name = `'..tostring(val).. '`'
-		else
-			name = ''
 		end
 		if _Value then
 			local val = part.Value
 			value = '\nPart.Value = '..tostring(val)
-		else
-			value = ''
 		end
 		if _Parent then
 			local val = part.Parent
@@ -480,6 +408,21 @@ end
 			end
 		end
 		valuestr = "local Part = Instance.new('BrickColorValue')".. tostring(name).. tostring(parent).. tostring(value)..""
+	end
+	if part:IsA('Folder') then
+		if _Name then
+			local val = part.Name
+			name = '\nPart.Name = `'..tostring(val).. '`'
+		end
+		if _Parent then
+			local val = part.Parent
+			if val == workspace.Source then
+				parent = '\nPart.Parent = game.'..tostring(_Root)
+			else
+				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
+			end
+		end
+		valuestr = "local Part = Instance.new('Folder')".. tostring(name).. tostring(parent)..""
 	end
 	
 		--Make the value
