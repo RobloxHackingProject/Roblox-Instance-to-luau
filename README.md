@@ -13,6 +13,7 @@ Currently only supports these Instances:
 * ObjectValue
 * Color3Value
 * BrickColorValue
+* Folder
 
 # How to use
 1) Run this code in the Roblox studio command bar. `local folder = Instance.new('Folder', workspace) folder.Name = 'Source'`
