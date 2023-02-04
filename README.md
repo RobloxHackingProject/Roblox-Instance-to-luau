@@ -14,6 +14,7 @@ Currently only supports these Instances:
 * Color3Value
 * BrickColorValue
 * Folder
+* Tool
 
 # How to use
 1) Run this code in the Roblox studio command bar. `local folder = Instance.new('Folder', workspace) folder.Name = 'Source'`
