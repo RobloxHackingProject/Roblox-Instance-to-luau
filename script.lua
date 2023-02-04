@@ -15,6 +15,7 @@ _CanCollide = true
 _CanTouch = true
 _CollisionGroup = true
 _Shape = true
+_Enabled = true
 
 --Other instance related settings
 _Value = true
@@ -26,6 +27,12 @@ _OffsetStudsU = true
 _OffsetStudsV = true
 _StudsPerTileU = true
 _StudsPerTileV = true
+_ToolTip = true
+_TextureId = true
+_Grip = true
+_CanBeDropped = true
+_ManualActivationOnly = true
+_RequiresHandle = true
 
 --Extra values that are mostly not used
 _CastShadow = true
@@ -124,9 +131,9 @@ for _,part in pairs(source:GetDescendants()) do
 		rootprio = ''
 	end
 	if _Parent then
-		local val = part.Parent
-		if val == workspace.Source then
-			parent = '\nPart.Parent = '..tostring(_Root)
+		local val = part.Parent.Name
+			if val == 'Source' then
+				parent = '\nPart.Parent = '..tostring(_Root)
 			else
 				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
@@ -147,7 +154,8 @@ end
 				trans = '\nPart.Transparency = '..tostring(val)
 		end
 		if _Texture then
-			local val = part.Texture
+			local val2 = part.Texture
+			local val = string.gsub(""..val2, "rbxassetid://", "")
 			texture = '\nPart.Texture = '..tostring(val)
 		end
 		if _ZIndex then
@@ -159,9 +167,9 @@ end
 			face = '\nPart.Face = '..tostring(val)
 		end
 			if _Parent then
-				local val = part.Parent.Name
-				if val == workspace.Source then
-					parent = '\nPart.Parent = game.'..tostring(_Root)
+			local val = part.Parent.Name
+				if val == 'Source' then
+					parent = '\nPart.Parent = '..tostring(_Root)
 				else
 				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 				end
@@ -182,7 +190,8 @@ end
 			trans = '\nPart.Transparency = '..tostring(val)
 		end
 		if _Texture then
-			local val = part.Texture
+			local val2 = part.Texture
+			local val = string.gsub(""..val2, "rbxassetid://", "")
 			texture = '\nPart.Texture = '..tostring(val)
 		end
 		if _ZIndex then
@@ -210,9 +219,9 @@ end
 			studsv = '\nPart.StudsPerTileV = '..tostring(val)
 		end
 		if _Parent then
-			local val = part.Parent
-			if val == workspace.Source then
-				parent = '\nPart.Parent = game.'..tostring(_Root)
+			local val = part.Parent.Name
+				if val == 'Source' then
+					parent = '\nPart.Parent = '..tostring(_Root)
 			else
 				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
@@ -229,9 +238,9 @@ end
 			value = '\nPart.Value = '..tostring(val)
 		end
 		if _Parent then
-			local val = part.Parent
-			if val == workspace.Source then
-				parent = '\nPart.Parent = game.'..tostring(_Root)
+			local val = part.Parent.Name
+				if val == 'Source' then
+					parent = '\nPart.Parent = '..tostring(_Root)
 			else
 				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
@@ -248,9 +257,9 @@ end
 			value = '\nPart.Value = '..tostring(val)
 		end
 		if _Parent then
-			local val = part.Parent
-			if val == workspace.Source then
-				parent = '\nPart.Parent = game.'..tostring(_Root)
+			local val = part.Parent.Name
+				if val == 'Source' then
+					parent = '\nPart.Parent = '..tostring(_Root)
 			else
 				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
@@ -267,9 +276,9 @@ end
 			value = '\nPart.Value = '..tostring(val)
 		end
 		if _Parent then
-			local val = part.Parent
-			if val == workspace.Source then
-				parent = '\nPart.Parent = game.'..tostring(_Root)
+			local val = part.Parent.Name
+				if val == 'Source' then
+					parent = '\nPart.Parent = '..tostring(_Root)
 			else
 				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
@@ -286,9 +295,9 @@ end
 			value = '\nPart.Value = "'..tostring(val).. '"'
 		end
 		if _Parent then
-			local val = part.Parent
-			if val == workspace.Source then
-				parent = '\nPart.Parent = game.'..tostring(_Root)
+			local val = part.Parent.Name
+				if val == 'Source' then
+					parent = '\nPart.Parent = '..tostring(_Root)
 			else
 				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
@@ -305,9 +314,9 @@ end
 			value = '\nPart.Value = CFrame.new('..tostring(val).. ')'
 		end
 		if _Parent then
-			local val = part.Parent
-			if val == workspace.Source then
-				parent = '\nPart.Parent = game.'..tostring(_Root)
+			local val = part.Parent.Name
+				if val == 'Source' then
+					parent = '\nPart.Parent = '..tostring(_Root)
 			else
 				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
@@ -324,9 +333,9 @@ end
 			value = '\nPart.Value = Vector3.new('..tostring(val).. ')'
 		end
 		if _Parent then
-			local val = part.Parent
-			if val == workspace.Source then
-				parent = '\nPart.Parent = game.'..tostring(_Root)
+			local val = part.Parent.Name
+				if val == 'Source' then
+					parent = '\nPart.Parent = '..tostring(_Root)
 			else
 				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
@@ -339,13 +348,21 @@ end
 			name = '\nPart.Name = `'..tostring(val).. '`'
 		end
 		if _Value then
-			local val = part.Value
+			local val2 = tostring(part.Value)
+			local val3 = string.gsub(val2, "{", "")
+			local val4 = string.gsub(val3, "}, ", "|")
+			local val5 = string.gsub(val4, "}", "")
+			local str = tostring(val5)
+			local parts = string.split(str,"|")
+			local part1 = parts[1]
+			local part2 = parts[2]
+			local val = "Ray.new(Vector3.new("..part1.."), Vector3.new("..part2.."))"
 			value = '\nPart.Value = '..tostring(val)
 		end
 		if _Parent then
-			local val = part.Parent
-			if val == workspace.Source then
-				parent = '\nPart.Parent = game.'..tostring(_Root)
+			local val = part.Parent.Name
+				if val == 'Source' then
+					parent = '\nPart.Parent = '..tostring(_Root)
 			else
 				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
@@ -358,13 +375,13 @@ end
 			name = '\nPart.Name = `'..tostring(val).. '`'
 		end
 		if _Value then
-			local val = part.Value
+			local val = part.Value:GetFullName()
 			value = '\nPart.Value = '..tostring(val)
 		end
 		if _Parent then
-			local val = part.Parent
-			if val == workspace.Source then
-				parent = '\nPart.Parent = game.'..tostring(_Root)
+			local val = part.Parent.Name
+				if val == 'Source' then
+					parent = '\nPart.Parent = '..tostring(_Root)
 			else
 				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
@@ -381,9 +398,9 @@ end
 			value = '\nPart.Value = Color3.new('..tostring(val).. ')'
 		end
 		if _Parent then
-			local val = part.Parent
-			if val == workspace.Source then
-				parent = '\nPart.Parent = game.'..tostring(_Root)
+			local val = part.Parent.Name
+				if val == 'Source' then
+					parent = '\nPart.Parent = '..tostring(_Root)
 			else
 				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
@@ -397,12 +414,12 @@ end
 		end
 		if _Value then
 			local val = part.Value
-			value = '\nPart.Value = '..tostring(val)
+			value = '\nPart.Value = BrickColor.new(`'..tostring(val).."`)"
 		end
 		if _Parent then
-			local val = part.Parent
-			if val == workspace.Source then
-				parent = '\nPart.Parent = game.'..tostring(_Root)
+			local val = part.Parent.Name
+				if val == 'Source' then
+					parent = '\nPart.Parent = '..tostring(_Root)
 			else
 				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
@@ -415,16 +432,60 @@ end
 			name = '\nPart.Name = `'..tostring(val).. '`'
 		end
 		if _Parent then
-			local val = part.Parent
-			if val == workspace.Source then
-				parent = '\nPart.Parent = game.'..tostring(_Root)
+			local val = part.Parent.Name
+				if val == 'Source' then
+					parent = '\nPart.Parent = '..tostring(_Root)
 			else
 				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
 			end
 		end
 		valuestr = "local Part = Instance.new('Folder')".. tostring(name).. tostring(parent)..""
 	end
-	
+	if part:IsA('Tool') then
+		if _Name then
+			local val = part.Name
+			name = '\nPart.Name = `'..tostring(val).. '`'
+		end
+		if _Enabled then
+			local val = part.Enabled
+			enabled = '\nPart.Enabled = '..tostring(val).. ''
+		end
+		if _ToolTip then
+			local val = part.ToolTip
+			tooltip = '\nPart.ToolTip = `'..tostring(val).. '`'
+		end
+		if _TextureId then
+			local val2 = part.TextureId
+			local val = string.gsub(""..val2, "rbxassetid://", "")
+			textureid = '\nPart.TextureId = '..tostring(val).. ''
+		end
+		if _Grip then
+		local val = part.Grip
+			grip = '\nPart.Grip = CFrame.new('..tostring(val).. ')'
+		end
+		if _CanBeDropped then
+		local val = part.CanBeDropped
+			canbedropped = '\nPart.CanBeDropped = '..tostring(val).. ''
+		end
+		if _ManualActivationOnly then
+		local val = part.ManualActivationOnly
+			manualactivationonly = '\nPart.ManualActivationOnly = '..tostring(val).. ''
+		end
+		if _RequiresHandle then
+		local val = part.RequiresHandle
+			requireshandle = '\nPart.RequiresHandle = '..tostring(val).. ''
+		end
+		if _Parent then
+			local val = part.Parent.Name
+				if val == 'Source' then
+					parent = '\nPart.Parent = '..tostring(_Root)
+			else
+				parent = '\nPart.Parent = '..tostring(_Root).."."..tostring(val)
+			end
+		end
+		valuestr = "local Part = Instance.new('Tool')".. tostring(name).. tostring(enabled).. tostring(tooltip).. tostring(textureid).. tostring(grip).. tostring(canbedropped).. tostring(manualactivationonly).. tostring(requireshandle).. tostring(parent)..""
+	end
+
 		--Make the value
 			local valueToCopy = clipboard.Value ..'\n\n' ..valuestr
 			clipboard.Value = valueToCopy
