@@ -1,5 +1,5 @@
 # Roblox Instance To Luau
-Code that can convert Roblox studio instances into code compatible with Roblox Injectors.
+A Roblox Studio plugin that can convert Roblox studio instances into code compatible with Roblox Injectors.
 Currently only supports these Instances: 
 * Part
 * Decal
@@ -15,19 +15,22 @@ Currently only supports these Instances:
 * BrickColorValue
 * Folder
 * Tool
+* Sound
+* SoundGroup
+* Script
+* LocalScript
+* SpawnLocation
+* MeshPart
 
 # How to use
-1) Run this code in the Roblox studio command bar. `local folder = Instance.new('Folder', workspace) folder.Name = 'Source'`
-2) Copy the code from 'script.lua'
-3) Create a new script inside the serverscriptservice
-4) Remove the print script and paste the code from step 2
-5) Put your instances that are supported into the 'Source' folder
-6) Run the game
-7) Go to workspace and copy the saved value from the 'Output' instance saved in the workspace
+1) Download and install the plugin here: https://www.roblox.com/library/12389549883
+2) Inside the plugin tab inside of studio click on "Instance to Luau".
+3) A floating menu will now appear, inside of here there are four buttons.
+4) Press the "Create convertion folder" button, you can now find a folder called "Source" inside the workspace.
+5) Put the instances you want to convert into the "Source" folder.
+6) Click on the "Convert Instances" button.
+7) A script will be made, you can find it inside the ReplicatedStorage.
 
 # Limitations
-This script currently only supports the instances listed at the beginning. 
-
-You can not give the child the same name as the parent or give the parent the same name as the child as this will break the output.
-
-This script will output a broken script when a texture property is left empty. (this can be prevented by disabling the texture property in the scripts settings.)
+This plugin currently only supports the instances listed at the beginning. 
+This plugin will output a broken script when a texture property is left empty.
